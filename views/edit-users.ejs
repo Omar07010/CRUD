@@ -1,0 +1,48 @@
+<%- include('layout/header') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-success">
+                    <h3 class="text-light">Edit User (<%= result.name %>)</h3>
+                </div>
+                <div class="cart-body p-4">
+                    <form action="/update/<%= result.id %>" method="post" id="add-form" enctype="multipart/form-data">
+                        <div class="nb-3">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control form-control-lg"
+                             placeholder="Enter Name" value="<%= result.name %>" required>
+                        </div>
+
+                        <div class="nb-3">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control form-control-lg"
+                             placeholder="Enter Email" value="<%= result.email %>" required>
+                        </div>
+
+                        <div class="nb-3">
+                            <label for="phone">Phone</label>
+                            <input type="tel" name="phone" class="form-control form-control-lg"
+                             placeholder="Enter Number" value="<%= result.phone %>" required>
+                        </div>
+
+                        <div class="nb-3">
+                            <label for="image" class="from-label">Select Image</label>
+                            <input type="file" name="image" class="form-control form-control-lg"
+                             placeholder="Enter Number">
+                        </div>
+                        <img src="/<%= result.image %>" width="100" class="img-thumbnail mt-1">
+                        <input type="hidden" name="old_image" value="<%= result.image %>">
+                        <div class="nb-3">
+                            <input type="submit" name="submit" value="Update User" class="btn btn-success btn-lg"
+                             />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer') %>
